@@ -1,0 +1,70 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.kazurayam",
+    "module": "kazurayam_FreeMarker_directives",
+    "version": "0.1.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.9.1",
+      "buildId": "znkd446fwfhtfn4uboyy3g3kui"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "kazurayam_FreeMarker_directives-0.1.0-SNAPSHOT.jar",
+          "url": "kazurayam_FreeMarker_directives-0.1.0-SNAPSHOT.jar",
+          "size": 2687,
+          "sha512": "94edbac00de0936196216e613f1331584d9f6e956dcea05e21565470d48f9e6071dc182621742187f5687cf5a4ce8cf2110f6d2be51bf10aec59947a60bb5104",
+          "sha256": "3869f383c14b055bd597199e8c57e191e78ad402596219807f3dbb2ebf3d81ef",
+          "sha1": "4074da704e4a643cd2fa016ce58e06232296ccfa",
+          "md5": "62182ec800c34f77f0b07ce7b4284329"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.freemarker",
+          "module": "freemarker",
+          "version": {
+            "requires": "2.3.31"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "kazurayam_FreeMarker_directives-0.1.0-SNAPSHOT.jar",
+          "url": "kazurayam_FreeMarker_directives-0.1.0-SNAPSHOT.jar",
+          "size": 2687,
+          "sha512": "94edbac00de0936196216e613f1331584d9f6e956dcea05e21565470d48f9e6071dc182621742187f5687cf5a4ce8cf2110f6d2be51bf10aec59947a60bb5104",
+          "sha256": "3869f383c14b055bd597199e8c57e191e78ad402596219807f3dbb2ebf3d81ef",
+          "sha1": "4074da704e4a643cd2fa016ce58e06232296ccfa",
+          "md5": "62182ec800c34f77f0b07ce7b4284329"
+        }
+      ]
+    }
+  ]
+}

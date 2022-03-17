@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.kazurayam</groupId>
+  <artifactId>kazurayam_FreeMarker_directives</artifactId>
+  <versioning>
+    <latest>0.1.0-SNAPSHOT</latest>
+    <versions>
+      <version>0.1.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20220317051747</lastUpdated>
+  </versioning>
+</metadata>

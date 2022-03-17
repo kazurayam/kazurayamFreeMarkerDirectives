@@ -1,0 +1,2 @@
+com/kazurayam/freemarker/ReadAllLinesDirective.java
+ com.kazurayam.freemarker.ReadAllLinesDirective
