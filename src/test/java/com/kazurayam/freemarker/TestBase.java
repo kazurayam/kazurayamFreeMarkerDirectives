@@ -12,12 +12,12 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Base {
+public class TestBase {
 
     protected Configuration cfg;
     protected Map<String, Object> model;
 
-    public Base() throws IOException {
+    public TestBase() throws IOException {
 
         Path projectDir = Paths.get(System.getProperty("user.dir"));
 
