@@ -61,7 +61,7 @@ See <https://github.com/kazurayam/materialstore/issues/191>
         }
     }
 
-see also [TestBase.java](../src/test/java/com/kazurayam/freemarker/TestBase.java)
+see also [TestBase.java](#_testbase_java)
 
 #### Template
 
@@ -77,7 +77,7 @@ see also [TestBase.java](../src/test/java/com/kazurayam/freemarker/TestBase.java
 
 #### Input
 
--   [sample CSV file](../src/test/fixture/store/AmznPress/20220310_203757/objects/e96bd4c2e345301b567d70071dcec04fda699ce4.csv)
+-   [sample CSV file](https://github.com/kazurayam/kazurayam_FreeMarker_directives/blob/master/src/test/fixture/store/AmznPress/20220310_203757/objects/e96bd4c2e345301b567d70071dcec04fda699ce4.csv)
 
 #### Output
 
@@ -86,7 +86,7 @@ see also [TestBase.java](../src/test/java/com/kazurayam/freemarker/TestBase.java
 
     ... (trimmed)
 
-## TestBase
+## TestBase.java
 
 The test classes here extends `TestBase.java` which prepares
 the configuration of FreeMarker.
@@ -156,3 +156,5 @@ which includes the name of directives (e.g, `readAllLines`).
 ## Reference
 
 1.  [FreeMarker Programmer’s Guide / The Data Model / Directives](https://freemarker.apache.org/docs/pgui_datamodel_directive.html)
+
+2.  [the project home](https://github.com/kazurayam/kazurayam_FreeMarker_directives)

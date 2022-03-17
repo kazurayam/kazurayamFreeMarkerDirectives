@@ -3,15 +3,15 @@
   "component": {
     "group": "com.kazurayam",
     "module": "kazurayam_FreeMarker_directives",
-    "version": "0.1.0-SNAPSHOT",
+    "version": "0.1.0",
     "attributes": {
-      "org.gradle.status": "integration"
+      "org.gradle.status": "release"
     }
   },
   "createdBy": {
     "gradle": {
       "version": "6.9.1",
-      "buildId": "znkd446fwfhtfn4uboyy3g3kui"
+      "buildId": "ayamwkf5ljc6zb5rvltvjj7spy"
     }
   },
   "variants": [
@@ -26,13 +26,13 @@
       },
       "files": [
         {
-          "name": "kazurayam_FreeMarker_directives-0.1.0-SNAPSHOT.jar",
-          "url": "kazurayam_FreeMarker_directives-0.1.0-SNAPSHOT.jar",
+          "name": "kazurayam_FreeMarker_directives-0.1.0.jar",
+          "url": "kazurayam_FreeMarker_directives-0.1.0.jar",
           "size": 2687,
-          "sha512": "94edbac00de0936196216e613f1331584d9f6e956dcea05e21565470d48f9e6071dc182621742187f5687cf5a4ce8cf2110f6d2be51bf10aec59947a60bb5104",
-          "sha256": "3869f383c14b055bd597199e8c57e191e78ad402596219807f3dbb2ebf3d81ef",
-          "sha1": "4074da704e4a643cd2fa016ce58e06232296ccfa",
-          "md5": "62182ec800c34f77f0b07ce7b4284329"
+          "sha512": "805f2990a24016f6a7e3cf380633be53869dd122a263e7b16553179ca154dafc7ffe32a2499bae67bdc8d17e8126c53bb3fc4a4bafbffbfb30b7b4d59e1485bc",
+          "sha256": "70583c02e766b4faa3f905891a4028e42c904f5746a070e79129fa50c60b1822",
+          "sha1": "6bec09b5da284ea3f5ca217a03090b016f947313",
+          "md5": "1df35b3508222db10f39d8df914e3984"
         }
       ]
     },
@@ -56,13 +56,13 @@
       ],
       "files": [
         {
-          "name": "kazurayam_FreeMarker_directives-0.1.0-SNAPSHOT.jar",
-          "url": "kazurayam_FreeMarker_directives-0.1.0-SNAPSHOT.jar",
+          "name": "kazurayam_FreeMarker_directives-0.1.0.jar",
+          "url": "kazurayam_FreeMarker_directives-0.1.0.jar",
           "size": 2687,
-          "sha512": "94edbac00de0936196216e613f1331584d9f6e956dcea05e21565470d48f9e6071dc182621742187f5687cf5a4ce8cf2110f6d2be51bf10aec59947a60bb5104",
-          "sha256": "3869f383c14b055bd597199e8c57e191e78ad402596219807f3dbb2ebf3d81ef",
-          "sha1": "4074da704e4a643cd2fa016ce58e06232296ccfa",
-          "md5": "62182ec800c34f77f0b07ce7b4284329"
+          "sha512": "805f2990a24016f6a7e3cf380633be53869dd122a263e7b16553179ca154dafc7ffe32a2499bae67bdc8d17e8126c53bb3fc4a4bafbffbfb30b7b4d59e1485bc",
+          "sha256": "70583c02e766b4faa3f905891a4028e42c904f5746a070e79129fa50c60b1822",
+          "sha1": "6bec09b5da284ea3f5ca217a03090b016f947313",
+          "md5": "1df35b3508222db10f39d8df914e3984"
         }
       ]
     }
