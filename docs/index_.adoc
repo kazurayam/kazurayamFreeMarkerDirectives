@@ -1,0 +1,74 @@
+= FreeMarker Directives defined by kazurayam
+
+This project is a collection of FreeMarker user-defined directives
+developed by kazurayam.
+
+It was tested with FreeMarker v2.3.31.
+
+== `readAllLines`
+
+The `readAllLines` directive reads a text file specified by the path parameter,
+iterate over all lines in it, generate the templated body.
+It will provide a loopVariable that contains the line.
+
+Synopsis
+----
+<@readAllLines path="path to the file" ; line>
+  <p>${line}</p>
+</@readAllLines>
+----
+
+kazurayam developed `readAllLine` directive for the `materialstore` project.
+See https://github.com/kazurayam/materialstore/issues/191
+
+
+=== Sample usage
+
+==== Caller Java
+
+.ReadAllLinesDirectivesTest.java
+[source,java]
+----
+include::../src/test/java/com/kazurayam/freemarker/ReadAllLinesDirectiveTest.java[]
+----
+
+see also link:../src/test/java/com/kazurayam/freemarker/TestBase.java[TestBase.java]
+
+
+==== Template
+
+.readAllLinesDemo.ftl
+[source]
+----
+include::../src/test/resources/freemarker_templates/readAllLinesDemo.ftl[]
+----
+
+==== Input
+
+- link:../src/test/fixture/store/AmznPress/20220310_203757/objects/e96bd4c2e345301b567d70071dcec04fda699ce4.csv[sample CSV file]
+
+==== Output
+
+----
+    <tr><td>0</td><td>publishedDate,uri,title,link,description,author</td></tr>
+    <tr><td>1</td><td>Thu Mar 10 20:00:00 JST 2022,31596,"OOO Until TBD? Majority of Canadian Office Workers Want Remote Work to Stay ",https://press.aboutamazon.com/news-releases/news-release-details/ooo-until-tbd-majority-canadian-office-workers-want-remote-work,"Half of Canadian office workers say working mostly/entirely remote is their ideal scenario; only one-quarter prefer mostly/entirely in office Ability to work remotely and flexible work hours are now more important to office workers than workplace culture, development/growth opportunities and","Amazon.com, Inc. - Press Room News Releases"</td></tr>
+
+... (trimmed)
+----
+
+== TestBase
+
+The test classes here extends `TestBase.java` which prepares
+the configuration of FreeMarker.
+Please note that some sharedVariables are declared here,
+which includes the name of directives (e.g, `readAllLines`).
+
+.TestBase
+[source,java]
+----
+include::../src/test/java/com/kazurayam/freemarker/TestBase.java[]
+----
+
+== Reference
+
+1. https://freemarker.apache.org/docs/pgui_datamodel_directive.html[FreeMarker Programmer's Guide / The Data Model / Directives]
