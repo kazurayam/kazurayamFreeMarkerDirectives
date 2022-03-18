@@ -17,8 +17,30 @@ Synopsis
       <p>${line}</p>
     </@readAllLines>
 
-kazurayam developed `readAllLine` directive for the `materialstore` project.
-See <https://github.com/kazurayam/materialstore/issues/191>
+### Motivation
+
+Let me consider a case where I am going to generate a HTML file
+using FreeMarker;
+I have a simple text file with some number of lines,
+and I want to insert HTML fragment as follows:
+
+            <tr><td> ... line #1 ... </td></tr>
+            <tr><td> ... line #2 ... </td></tr>
+            <tr><td> ... line #3 ... </td></tr>
+            ...
+
+You may be or may not be aware, FreeMarker does not provide a built-in
+directive with which I can read a text content from external file, and
+transform the lines into HTML fragments.
+The following diagram shows the basic how FreeMarker works.
+
+![FreeMarker base](images/FreeMarker_base.png)
+
+Now I wanted to do something like this:
+
+![FreeMarker readAllLines](images/FreeMarker_readAllLines.png)
+
+My custom `readAllLines` directive just enambles me to do it.
 
 ### Sample usage
 
