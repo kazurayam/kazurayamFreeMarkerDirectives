@@ -70,7 +70,7 @@ My custom `readAllLines` directive just enambles me to do it.
         @Test
         public void execute() throws IOException, TemplateException {
             /* Get the template (uses cache internally) */
-            Template temp = cfg.getTemplate("readAllLinesDemo.ftl");
+            Template temp = cfg.getTemplate("readAllLinesDemo.ftlh");
 
             /* Merge data-model with template */
             Writer out = new StringWriter();
@@ -83,32 +83,7 @@ My custom `readAllLines` directive just enambles me to do it.
         }
     }
 
-see also [TestBase.java](#_testbase_java)
-
-#### Template
-
-**readAllLinesDemo.ftl**
-
-    <#-- readAllLinesDemo.ftl -->
-    <#-- custom directive name "readAllLines" is defined as a shared variable. See TestBase.java -->
-    <#assign x = 0>
-    <@readAllLines path="AmznPress/20220310_203757/objects/e96bd4c2e345301b567d70071dcec04fda699ce4.csv"; line>
-        <tr><td>${x}</td><td>${line}</td></tr>
-        <#assign x++>
-    </@readAllLines>
-
-#### Input
-
--   [sample CSV file](https://github.com/kazurayam/kazurayam_FreeMarker_directives/blob/master/src/test/fixture/store/AmznPress/20220310_203757/objects/e96bd4c2e345301b567d70071dcec04fda699ce4.csv)
-
-#### Output
-
-        <tr><td>0</td><td>publishedDate,uri,title,link,description,author</td></tr>
-        <tr><td>1</td><td>Thu Mar 10 20:00:00 JST 2022,31596,"OOO Until TBD? Majority of Canadian Office Workers Want Remote Work to Stay ",https://press.aboutamazon.com/news-releases/news-release-details/ooo-until-tbd-majority-canadian-office-workers-want-remote-work,"Half of Canadian office workers say working mostly/entirely remote is their ideal scenario; only one-quarter prefer mostly/entirely in office Ability to work remotely and flexible work hours are now more important to office workers than workplace culture, development/growth opportunities and","Amazon.com, Inc. - Press Room News Releases"</td></tr>
-
-    ... (trimmed)
-
-## TestBase.java
+#### TestBase.java
 
 The test classes here extends `TestBase.java` which prepares
 the configuration of FreeMarker.
@@ -174,6 +149,29 @@ which includes the name of directives (e.g, `readAllLines`).
             model = new HashMap<>();
         }
     }
+
+#### Template
+
+**readAllLinesDemo.ftlh**
+
+    <#-- readAllLinesDemo.ftlh -->
+    <#-- custom directive name "readAllLines" is defined as a shared variable. See TestBase.java -->
+    <#assign x = 0>
+    <@readAllLines path="AmznPress/20220310_203757/objects/e96bd4c2e345301b567d70071dcec04fda699ce4.csv"; line>
+        <tr><td>${x}</td><td>${line}</td></tr>
+        <#assign x++>
+    </@readAllLines>
+
+#### Input
+
+-   [sample CSV file](https://github.com/kazurayam/kazurayam_FreeMarker_directives/blob/master/src/test/fixture/store/AmznPress/20220310_203757/objects/e96bd4c2e345301b567d70071dcec04fda699ce4.csv)
+
+#### Output
+
+        <tr><td>0</td><td>publishedDate,uri,title,link,description,author</td></tr>
+        <tr><td>1</td><td>Thu Mar 10 20:00:00 JST 2022,31596,"OOO Until TBD? Majority of Canadian Office Workers Want Remote Work to Stay ",https://press.aboutamazon.com/news-releases/news-release-details/ooo-until-tbd-majority-canadian-office-workers-want-remote-work,"Half of Canadian office workers say working mostly/entirely remote is their ideal scenario; only one-quarter prefer mostly/entirely in office Ability to work remotely and flexible work hours are now more important to office workers than workplace culture, development/growth opportunities and","Amazon.com, Inc. - Press Room News Releases"</td></tr>
+
+    ... (trimmed)
 
 ## Reference
 

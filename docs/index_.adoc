@@ -55,15 +55,27 @@ My custom `readAllLines` directive just enambles me to do it.
 include::../src/test/java/com/kazurayam/freemarker/ReadAllLinesDirectiveTest.java[]
 ----
 
-see also <<TestBase.java>>
+==== TestBase.java
+
+The test classes here extends `TestBase.java` which prepares
+the configuration of FreeMarker.
+Please note that some sharedVariables are declared here,
+which includes the name of directives (e.g, `readAllLines`).
+
+.TestBase
+[source,java]
+----
+include::../src/test/java/com/kazurayam/freemarker/TestBase.java[]
+----
+
 
 
 ==== Template
 
-.readAllLinesDemo.ftl
+.readAllLinesDemo.ftlh
 [source]
 ----
-include::../src/test/resources/freemarker_templates/readAllLinesDemo.ftl[]
+include::../src/test/resources/freemarker_templates/readAllLinesDemo.ftlh[]
 ----
 
 ==== Input
@@ -79,18 +91,6 @@ include::../src/test/resources/freemarker_templates/readAllLinesDemo.ftl[]
 ... (trimmed)
 ----
 
-== TestBase.java
-
-The test classes here extends `TestBase.java` which prepares
-the configuration of FreeMarker.
-Please note that some sharedVariables are declared here,
-which includes the name of directives (e.g, `readAllLines`).
-
-.TestBase
-[source,java]
-----
-include::../src/test/java/com/kazurayam/freemarker/TestBase.java[]
-----
 
 == Reference
 

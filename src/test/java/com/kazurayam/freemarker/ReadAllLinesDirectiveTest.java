@@ -20,7 +20,7 @@ public class ReadAllLinesDirectiveTest extends TestBase {
     @Test
     public void execute() throws IOException, TemplateException {
         /* Get the template (uses cache internally) */
-        Template temp = cfg.getTemplate("readAllLinesDemo.ftl");
+        Template temp = cfg.getTemplate("readAllLinesDemo.ftlh");
 
         /* Merge data-model with template */
         Writer out = new StringWriter();
