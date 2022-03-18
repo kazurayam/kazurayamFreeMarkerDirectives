@@ -23,6 +23,7 @@ import freemarker.template.TemplateScalarModel;
 public class ReadAllLinesDirective implements TemplateDirectiveModel {
 
     private static final String PARAM_NAME_PATH = "path";
+    private static final String VARIABLE_NAME_BASEDIR = "baseDir";
 
     @Override
     public void execute(Environment env,
@@ -64,7 +65,7 @@ public class ReadAllLinesDirective implements TemplateDirectiveModel {
         // 1. resolve tha path of the file to read
         // 2. read all lines from a text file
         // 3. put each line into the loop variable
-        String sp = String.valueOf(env.getVariable("store"));
+        String sp = String.valueOf(env.getVariable(VARIABLE_NAME_BASEDIR));
         Path store = Paths.get(sp);
         if (!store.isAbsolute()) {
             store = Paths.get(System.getProperty("user.dir")).resolve(sp);

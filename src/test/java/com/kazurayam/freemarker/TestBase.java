@@ -43,7 +43,7 @@ public class TestBase {
         try {
             cfg.setSharedVariable("readAllLines", new com.kazurayam.freemarker.ReadAllLinesDirective());
             Path store = projectDir.resolve("src/test/fixture").resolve("store");
-            cfg.setSharedVariable("store", store.normalize().toAbsolutePath().toString());
+            cfg.setSharedVariable("baseDir", store.normalize().toAbsolutePath().toString());
         } catch (TemplateModelException e) {
             throw new RuntimeException(e);
         }
