@@ -95,4 +95,5 @@ include::../src/test/resources/freemarker_templates/readAllLinesDemo.ftlh[]
 == Reference
 
 1. https://freemarker.apache.org/docs/pgui_datamodel_directive.html[FreeMarker Programmer's Guide / The Data Model / Directives]
-2. https://github.com/kazurayam/kazurayam_FreeMarker_directives[the project home]
+2. https://freemarker.apache.org/docs/dgui_misc_userdefdir.html[FreeMarker Manual / Template Author's Guide / Miscellaneous / Defining your own directives]
+3. https://github.com/kazurayam/kazurayam_FreeMarker_directives[the project home]

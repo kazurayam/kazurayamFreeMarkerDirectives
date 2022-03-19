@@ -3,12 +3,13 @@
   <groupId>com.kazurayam</groupId>
   <artifactId>kazurayam_FreeMarker_directives</artifactId>
   <versioning>
-    <latest>0.1.0</latest>
-    <release>0.1.0</release>
+    <latest>0.1.1</latest>
+    <release>0.1.1</release>
     <versions>
       <version>0.1.0-SNAPSHOT</version>
       <version>0.1.0</version>
+      <version>0.1.1</version>
     </versions>
-    <lastUpdated>20220317052530</lastUpdated>
+    <lastUpdated>20220318094446</lastUpdated>
   </versioning>
 </metadata>

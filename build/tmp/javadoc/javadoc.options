@@ -1,7 +1,7 @@
 -classpath '/Users/kazuakiurayama/github/kazurayam_FreeMarker_directives/build/classes/java/main:/Users/kazuakiurayama/github/kazurayam_FreeMarker_directives/build/resources/main:/Users/kazuakiurayama/.gradle/caches/modules-2/files-2.1/org.freemarker/freemarker/2.3.31/cd4fc0942b4a8bdb19f3b669aa42136fb54feb55/freemarker-2.3.31.jar'
 -d '/Users/kazuakiurayama/github/kazurayam_FreeMarker_directives/build/docs/javadoc'
--doctitle 'kazurayam_FreeMarker_directives 0.1.0 API'
+-doctitle 'kazurayam_FreeMarker_directives 0.1.1 API'
 -notimestamp 
 -quiet 
--windowtitle 'kazurayam_FreeMarker_directives 0.1.0 API'
+-windowtitle 'kazurayam_FreeMarker_directives 0.1.1 API'
 '/Users/kazuakiurayama/github/kazurayam_FreeMarker_directives/src/main/java/com/kazurayam/freemarker/ReadAllLinesDirective.java'

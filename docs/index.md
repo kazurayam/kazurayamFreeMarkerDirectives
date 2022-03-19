@@ -68,7 +68,7 @@ My custom `readAllLines` directive just enambles me to do it.
         }
 
         @Test
-        public void execute() throws IOException, TemplateException {
+        public void test_execute() throws IOException, TemplateException {
             /* Get the template (uses cache internally) */
             Template temp = cfg.getTemplate("readAllLinesDemo.ftlh");
 
@@ -137,7 +137,7 @@ which includes the name of directives (e.g, `readAllLines`).
             try {
                 cfg.setSharedVariable("readAllLines", new com.kazurayam.freemarker.ReadAllLinesDirective());
                 Path store = projectDir.resolve("src/test/fixture").resolve("store");
-                cfg.setSharedVariable("store", store.normalize().toAbsolutePath().toString());
+                cfg.setSharedVariable("baseDir", store.normalize().toAbsolutePath().toString());
             } catch (TemplateModelException e) {
                 throw new RuntimeException(e);
             }
@@ -177,4 +177,6 @@ which includes the name of directives (e.g, `readAllLines`).
 
 1.  [FreeMarker Programmer’s Guide / The Data Model / Directives](https://freemarker.apache.org/docs/pgui_datamodel_directive.html)
 
-2.  [the project home](https://github.com/kazurayam/kazurayam_FreeMarker_directives)
+2.  [FreeMarker Manual / Template Author’s Guide / Miscellaneous / Defining your own directives](https://freemarker.apache.org/docs/dgui_misc_userdefdir.html)
+
+3.  [the project home](https://github.com/kazurayam/kazurayam_FreeMarker_directives)
