@@ -11,6 +11,10 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.Map;
 
+/**
+ * A Sample Custom Directive explated in
+ * https://freemarker.apache.org/docs/pgui_datamodel_directive.html
+ */
 public class UpperCaseDirective implements TemplateDirectiveModel {
 
     public void execute(Environment env,

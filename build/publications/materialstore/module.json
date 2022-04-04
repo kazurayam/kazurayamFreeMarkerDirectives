@@ -3,15 +3,14 @@
   "component": {
     "group": "com.kazurayam",
     "module": "kazurayam_FreeMarker_directives",
-    "version": "0.1.1",
+    "version": "0.2.0-SNAPSHOT",
     "attributes": {
-      "org.gradle.status": "release"
+      "org.gradle.status": "integration"
     }
   },
   "createdBy": {
     "gradle": {
-      "version": "6.9.1",
-      "buildId": "47m3rtfn5zfhdhlr74rbbdeopy"
+      "version": "7.4.2"
     }
   },
   "variants": [
@@ -26,13 +25,13 @@
       },
       "files": [
         {
-          "name": "kazurayam_FreeMarker_directives-0.1.1.jar",
-          "url": "kazurayam_FreeMarker_directives-0.1.1.jar",
-          "size": 2723,
-          "sha512": "014a773ff1f07fdbecddf1d10ea710bf9a57d4c8ac4bdcba7c96d241c3b7efa5d871958eea9db8d0ef72c0c88d89dbe0dbff0ddffad2c7df85c38d3f0ad28bb6",
-          "sha256": "fcbe85d426ceab47b5efd99cac0b12ce6c7256ef657bc368bd4bafe1ed2b42b9",
-          "sha1": "02b4490c2059f6b06355c768ebd20a2a5180e0db",
-          "md5": "6c7c4c7215b3ec16e86e54c24406cc50"
+          "name": "kazurayam_FreeMarker_directives-0.2.0-SNAPSHOT.jar",
+          "url": "kazurayam_FreeMarker_directives-0.2.0-SNAPSHOT.jar",
+          "size": 6861,
+          "sha512": "14ccb8c86fa55222933b8e74f8bfcc2994b1ae8ee0fa881b99805f98aeb61822c7c0468f1ec790f361833f297790b45555935ca4a6733293e14c6b9ad9ee8d0e",
+          "sha256": "d22ecc3dd4c1dd8d94ffc77ae40e75c0c00b69c775e6b28b62271631aee83b2b",
+          "sha1": "a1ee02b52584e5d2cc326aa33252a8c8a6cf85a7",
+          "md5": "d41d0390dd1a7634ec932cb037b67445"
         }
       ]
     },
@@ -56,13 +55,13 @@
       ],
       "files": [
         {
-          "name": "kazurayam_FreeMarker_directives-0.1.1.jar",
-          "url": "kazurayam_FreeMarker_directives-0.1.1.jar",
-          "size": 2723,
-          "sha512": "014a773ff1f07fdbecddf1d10ea710bf9a57d4c8ac4bdcba7c96d241c3b7efa5d871958eea9db8d0ef72c0c88d89dbe0dbff0ddffad2c7df85c38d3f0ad28bb6",
-          "sha256": "fcbe85d426ceab47b5efd99cac0b12ce6c7256ef657bc368bd4bafe1ed2b42b9",
-          "sha1": "02b4490c2059f6b06355c768ebd20a2a5180e0db",
-          "md5": "6c7c4c7215b3ec16e86e54c24406cc50"
+          "name": "kazurayam_FreeMarker_directives-0.2.0-SNAPSHOT.jar",
+          "url": "kazurayam_FreeMarker_directives-0.2.0-SNAPSHOT.jar",
+          "size": 6861,
+          "sha512": "14ccb8c86fa55222933b8e74f8bfcc2994b1ae8ee0fa881b99805f98aeb61822c7c0468f1ec790f361833f297790b45555935ca4a6733293e14c6b9ad9ee8d0e",
+          "sha256": "d22ecc3dd4c1dd8d94ffc77ae40e75c0c00b69c775e6b28b62271631aee83b2b",
+          "sha1": "a1ee02b52584e5d2cc326aa33252a8c8a6cf85a7",
+          "md5": "d41d0390dd1a7634ec932cb037b67445"
         }
       ]
     }

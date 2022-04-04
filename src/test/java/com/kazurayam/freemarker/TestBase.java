@@ -44,6 +44,8 @@ public class TestBase {
             cfg.setSharedVariable("baseDir", store.normalize().toAbsolutePath().toString());
             //
             cfg.setSharedVariable("uppercase", new UpperCaseDirective());
+            //
+            cfg.setSharedVariable("compressToSingleLine", new CompressToSingleLineDirective());
 
         } catch (TemplateModelException e) {
             throw new RuntimeException(e);
