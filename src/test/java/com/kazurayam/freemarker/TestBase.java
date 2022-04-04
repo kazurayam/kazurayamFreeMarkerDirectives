@@ -1,10 +1,8 @@
 package com.kazurayam.freemarker;
 
 import freemarker.template.Configuration;
-import freemarker.template.TemplateException;
 import freemarker.template.TemplateExceptionHandler;
 import freemarker.template.TemplateModelException;
-import org.junit.jupiter.api.extension.ExtensionContext;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -44,6 +42,9 @@ public class TestBase {
             cfg.setSharedVariable("readAllLines", new com.kazurayam.freemarker.ReadAllLinesDirective());
             Path store = projectDir.resolve("src/test/fixture").resolve("store");
             cfg.setSharedVariable("baseDir", store.normalize().toAbsolutePath().toString());
+            //
+            cfg.setSharedVariable("uppercase", new UpperCaseDirective());
+
         } catch (TemplateModelException e) {
             throw new RuntimeException(e);
         }
