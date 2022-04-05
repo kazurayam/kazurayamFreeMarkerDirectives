@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kazurayam.freemarker.UpperCaseDirectiveTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-05T01:21:19" hostname="KAZUAKInoMacBook-Air-2.local" time="0.003">
+  <properties/>
+  <testcase name="test_execute()" classname="com.kazurayam.freemarker.UpperCaseDirectiveTest" time="0.003"/>
+  <system-out><![CDATA[HELLO, NIKOLAI!
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

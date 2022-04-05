@@ -65,17 +65,20 @@ public class ReadAllLinesDirective implements TemplateDirectiveModel {
         // 1. resolve tha path of the file to read
         // 2. read all lines from a text file
         // 3. put each line into the loop variable
-        String sp = String.valueOf(env.getVariable(VARIABLE_NAME_BASEDIR));
-        Path store = Paths.get(sp);
-        if (!store.isAbsolute()) {
-            store = Paths.get(System.getProperty("user.dir")).resolve(sp);
+        if (env.getVariable(VARIABLE_NAME_BASEDIR) == null) {
+            throw new TemplateModelException(VARIABLE_NAME_BASEDIR + " is not defined");
         }
-        if (!Files.exists(store)) {
+        String sp = String.valueOf(env.getVariable(VARIABLE_NAME_BASEDIR));
+        Path baseDir = Paths.get(sp);
+        if (!baseDir.isAbsolute()) {
+            baseDir = Paths.get(System.getProperty("user.dir")).resolve(sp);
+        }
+        if (!Files.exists(baseDir)) {
             throw new TemplateModelException(
-                    "store \"" + sp + "\" does not exist."
+                    VARIABLE_NAME_BASEDIR + " \"" + sp + "\" does not exist."
             );
         }
-        Path file = store.resolve(pathParam);
+        Path file = baseDir.resolve(pathParam);
         if (!Files.exists(file)) {
             throw new TemplateModelException(
                     "file \"" + file.toString() + "\" does not exist."
@@ -84,7 +87,6 @@ public class ReadAllLinesDirective implements TemplateDirectiveModel {
 
         List<String> lines = Files.readAllLines(file, StandardCharsets.UTF_8);
 
-        Writer out = env.getOut();
         if (body != null) {
             for (String line : lines) {
                 if (loopVars.length > 0) {
