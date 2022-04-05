@@ -51,10 +51,10 @@ public class CompressToSingleLineDirectiveTest extends TestBase {
         while ((line = br.readLine()) != null) {
             lines.add(line);
         }
-        assertEquals(1, lines.size());   // single line
-        // indent of <span> tag content should be preserved
-        assertTrue(output.contains("<span class=\"nochange\">    {&quot;cat"));
-        assertTrue(output.contains("<span class=\"nochange\">     &quot;greeting"));
+        assertEquals(1, lines.size(), "should be single line");
+        assertTrue(lines.get(0).startsWith("<span"),   "^\\s+ should be trimmed");
+        assertTrue(output.contains("<span class=\"nochange\">    {&quot;cat"),
+                "indent of text inside <span> tags should be preserved");
     }
 
 }

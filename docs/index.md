@@ -95,10 +95,8 @@ which includes the name of directives (e.g, `readAllLines`).
     package com.kazurayam.freemarker;
 
     import freemarker.template.Configuration;
-    import freemarker.template.TemplateException;
     import freemarker.template.TemplateExceptionHandler;
     import freemarker.template.TemplateModelException;
-    import org.junit.jupiter.api.extension.ExtensionContext;
 
     import java.io.IOException;
     import java.nio.file.Path;
@@ -138,6 +136,11 @@ which includes the name of directives (e.g, `readAllLines`).
                 cfg.setSharedVariable("readAllLines", new com.kazurayam.freemarker.ReadAllLinesDirective());
                 Path store = projectDir.resolve("src/test/fixture").resolve("store");
                 cfg.setSharedVariable("baseDir", store.normalize().toAbsolutePath().toString());
+                //
+                cfg.setSharedVariable("uppercase", new UpperCaseDirective());
+                //
+                cfg.setSharedVariable("compressToSingleLine", new CompressToSingleLineDirective());
+
             } catch (TemplateModelException e) {
                 throw new RuntimeException(e);
             }
@@ -172,6 +175,155 @@ which includes the name of directives (e.g, `readAllLines`).
         <tr><td>1</td><td>Thu Mar 10 20:00:00 JST 2022,31596,"OOO Until TBD? Majority of Canadian Office Workers Want Remote Work to Stay ",https://press.aboutamazon.com/news-releases/news-release-details/ooo-until-tbd-majority-canadian-office-workers-want-remote-work,"Half of Canadian office workers say working mostly/entirely remote is their ideal scenario; only one-quarter prefer mostly/entirely in office Ability to work remotely and flexible work hours are now more important to office workers than workplace culture, development/growth opportunities and","Amazon.com, Inc. - Press Room News Releases"</td></tr>
 
     ... (trimmed)
+
+## compressToSingleLine
+
+The `compressToSingleLine` directive strips the following text fragments out of the body text.
+
+1.  Leading whitespaces of each lines (`^\s+`)
+
+2.  Traling whitespaces of each lines (`\s*$`)
+
+3.  Line breaks (`\r|\n`)
+
+The whitespaces between the 1st printable character and the last printable character will be preseved
+(will not be trimmed).
+
+Empty lines will be ignored.
+
+Consequently the body text will become a single line.
+
+The `compressToSingleLine` directive takes no arguments.
+
+Synopsis
+
+    <@compressToSingleLine>
+        <#-- any body text -->
+    <@compressToSIngleLine>
+
+### Motivation
+
+FreeMarker provides a few options of white-space handling.
+See [the document](https://freemarker.apache.org/docs/dgui_misc_whitespace.html) for detail.
+
+I was not satisfied with the standard options because I had a very particular requirement for white-space handling.
+Let me show you an example.
+
+My template produced this output:
+
+          <span class="code">
+                <span class="nochange">    {&quot;cat&quot;:  &quot;Nikolai, Marcus and Ume&quot;,
+    </span>
+                <span class="nochange">     &quot;greeting&quot;:  &quot;Hello, world!&quot;}
+    </span>
+          </span>
+
+This output was problematic for me because:
+
+1.  I want to trim the indentation spaces before `<span>` in all lines.
+
+2.  I do not want to compress white-spaces inside `<span>` and `</span>`. I mean the 4 white-spaces in side `<span class="nochange">    {"cat` should be retained.
+
+3.  The output has 6 lines. But I want all `<span>` tags concatinated without line breaks.
+    A sequence of `<span>` tags should form 1 single line.
+    In other words, I want to remove `\n` and `\r`.
+
+The result I want looks as follows:
+
+    <span class="code"><span class="nochange">    {&quot;cat&quot;:  &quot;Nikolai, Marcus and Ume&quot;,</span><span class="nochange">     &quot;greeting&quot;:  &quot;Hello, world!&quot;}</span></span>
+
+The built-in [&lt;#compress>](https://freemarker.apache.org/docs/dgui_misc_whitespace.html#autoid_30) directory
+does sightly different from what I want. So I developed a custom directory `@compressToSingleLine` for me.
+
+#### Caller Java
+
+**CompressToSingleLineDirectivesTest.java**
+
+    package com.kazurayam.freemarker;
+
+    import freemarker.template.Template;
+    import freemarker.template.TemplateException;
+    import org.junit.jupiter.api.Test;
+
+    import java.io.BufferedReader;
+    import java.io.IOException;
+    import java.io.StringReader;
+    import java.io.StringWriter;
+    import java.io.Writer;
+    import java.util.ArrayList;
+    import java.util.Arrays;
+    import java.util.List;
+
+    import static org.junit.jupiter.api.Assertions.assertEquals;
+    import static org.junit.jupiter.api.Assertions.assertNotNull;
+    import static org.junit.jupiter.api.Assertions.assertTrue;
+
+    public class CompressToSingleLineDirectiveTest extends TestBase {
+
+        public CompressToSingleLineDirectiveTest() throws IOException {
+            super();
+        }
+
+        @Test
+        public void test_execute() throws IOException, TemplateException {
+            /* set data into the model */
+            List<String> segments = Arrays.asList(
+                    "    {\"cat\":  \"Nikolai, Marcus and Ume\",\n",
+                    "     \"greeting\":  \"Hello, world!\"}     \n");
+            model.put("segments", segments);
+
+            /* Get the template (uses cache internally) */
+            Template temp = cfg.getTemplate("compressToSingleLineDemo.ftlh");
+
+            /* Merge data-model with template */
+            Writer out = new StringWriter();
+            temp.process(model, out);
+
+            String output = out.toString();
+            assertNotNull(output);
+
+            System.out.println("---------------------");
+            System.out.println(output);
+            System.out.println("---------------------");
+
+            BufferedReader br = new BufferedReader(new StringReader(output));
+            List<String> lines = new ArrayList<>();
+            String line;
+            while ((line = br.readLine()) != null) {
+                lines.add(line);
+            }
+            assertEquals(1, lines.size(), "should be single line");
+            assertTrue(lines.get(0).startsWith("<span"),   "^\\s+ should be trimmed");
+            assertTrue(output.contains("<span class=\"nochange\">    {&quot;cat"),
+                    "indent of text inside <span> tags should be preserved");
+        }
+
+    }
+
+#### Template
+
+**compressToSingleLineDemoDemo.ftlh**
+
+    <#-- compressToSingleLineDemo.ftlh -->
+
+    <#-- sample markup text will be printed straight -->
+    <@sampleMarkup />
+
+    <#-- custom directive name "compressToSingleLine" is defined as a shared variable. See TestVase.java. -->
+    <@compressToSingleLine>
+      <@sampleMarkup/>
+    </@compressToSingleLine>
+
+    <#macro sampleMarkup>
+        <#assign clazz="nochange">
+        <#list segments>
+          <span class="code">
+              <#items as segment>
+                <span class="${clazz}">${segment}</span>
+              </#items>
+          </span>
+        </#list>
+    </#macro>
 
 ## Reference
 

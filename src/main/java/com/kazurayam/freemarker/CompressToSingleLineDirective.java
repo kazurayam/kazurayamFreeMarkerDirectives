@@ -89,7 +89,10 @@ public class CompressToSingleLineDirective implements TemplateDirectiveModel {
             BufferedReader br = new BufferedReader(new StringReader(source));
             String line;
             while ((line = br.readLine()) != null) {
-                result.append(line.trim());
+                String s = line.replaceAll("^\\s+|\\s+$", "");
+                if (s.length() > 0) {
+                    result.append(s);
+                }
             }
             return result.toString();
         }
